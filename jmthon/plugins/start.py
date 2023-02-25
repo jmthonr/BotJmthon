@@ -1,5 +1,6 @@
 from telethon import events, Button
 from .. import jmthon
+from . import get_mention
 
 @jmthon.on(events.NewMessage(incoming=True, pattern='/start'))
 async def _startmsg(event):
