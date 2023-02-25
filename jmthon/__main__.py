@@ -4,7 +4,7 @@ import glob
 import sys
 from sys import modules
 from importlib.util import spec_from_file_location, module_from_spec
-
+from . import jmthon
 from pathlib import Path
 
 
