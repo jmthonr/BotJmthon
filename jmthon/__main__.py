@@ -3,6 +3,8 @@ import logging
 import glob
 import sys
 
+from pathlib import Path
+
 from telethon import TelegramClient
 
 from config import APP_ID, API_HASH, TOKEN
