@@ -2,6 +2,7 @@ import contextlib
 import logging
 import glob
 import sys
+from sys import modules
 from importlib.util import spec_from_file_location, module_from_spec
 
 from pathlib import Path
