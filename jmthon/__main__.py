@@ -1,5 +1,6 @@
 import contextlib
 import logging
+import glob
 import sys
 
 from telethon import TelegramClient
