@@ -1,4 +1,6 @@
 import glob
+import logging
+
 from pathlib import Path
 from importlib.util import spec_from_file_location, module_from_spec
 
@@ -9,14 +11,7 @@ def load_plugins(plugin_name):
     load = module_from_spec(spec)
     spec.loader.exec_module(load)
     modules["jmthon.plugins." + plugin_name] = load
-    LOGGER.info("🔷 Successfully Imported " + plugin_name)
+    logging.info("🔷 Successfully Imported " + plugin_name)
     return
 
 
-path = 'jmthon/plugins/*.py'
-files = glob.glob(path)
-for name in files:
-    with open(name) as f:
-        path1 = Path(f.name)
-        shortname = path1.stem
-        load_plugins(shortname.replace(".py", ""))
