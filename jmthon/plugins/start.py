@@ -1,5 +1,5 @@
 from telethon import events, Button
-from jmthon import jmthon
+from .. import jmthon
 
 @jmthon.on(events.NewMessage(incoming=True, pattern='/start'))
 async def _startmsg(event):
