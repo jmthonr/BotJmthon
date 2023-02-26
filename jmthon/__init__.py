@@ -10,9 +10,4 @@ logging.basicConfig(
 
 
 jmthon = TelegramClient("jmthon-bot", APP_ID, API_HASH)
-
-try:
-    jmthon.start(bot_token=TOKEN)
-except Exception:
-    print("Bot Token Invalid - التوكن غير صحيح")
-    sys.exit(1)
+jmthon.start(bot_token=TOKEN)
