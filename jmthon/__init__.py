@@ -1,5 +1,6 @@
 from telethon import TelegramClient
 import logging
+import sys
 from config import APP_ID, API_HASH, TOKEN
 
 logging.basicConfig(
