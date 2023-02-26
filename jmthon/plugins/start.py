@@ -14,7 +14,10 @@ async def _startmsg(e):
 ])
     return
 
-
-@jmthon.on(events.NewMessage(incoming=True, pattern='^سينكو'))
+@jmthon.on(events.NewMessage(incoming=True, pattern='^بوت$'))
 async def enable_group(event):
-    await event.reply("اسمي مو سينكو كسخت صادق")
+    await event.reply("كس امك مو بوت اسمي سينكو")
+
+@jmthon.on(events.NewMessage(incoming=True, pattern='^سينكو$'))
+async def enable_group(event):
+    await event.reply("تفضل شنو تريد من سينكو")
