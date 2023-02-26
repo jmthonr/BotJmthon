@@ -23,3 +23,8 @@ async def enable_group(event):
     else:
         set("TF3EL", "Done")
         await event.reply("تم بنجاح تفعيل المجموعة بنجاح")
+
+
+@jmthon.on(events.NewMessage(incoming=True, pattern='^سينكو'))
+async def enable_group(event):
+    await event.reply("اسمي مو سينكو كسخت صادق")
