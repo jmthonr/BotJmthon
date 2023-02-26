@@ -1,5 +1,5 @@
 from telethon import events, Button
-from ..database.globals import add, get
+from ..database.globals import set, get
 from .. import jmthon
 from . import get_mention
 
@@ -21,5 +21,5 @@ async def enable_group(event):
     if get("TF3EL"):
         await event.reply("ألمجموعة مفعلة بنجاح")
     else:
-        add("TF3EL", "Done")
+        set("TF3EL", "Done")
         await event.reply("تم بنجاح تفعيل المجموعة بنجاح")
