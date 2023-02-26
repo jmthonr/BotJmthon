@@ -15,9 +15,13 @@ async def _startmsg(e):
     return
 
 @jmthon.on(events.NewMessage(incoming=True, pattern='^بوت$'))
-async def enable_group(event):
-    await event.reply("كس امك مو بوت اسمي سينكو")
+async def enable_group(e):
+    if e.is_private:
+        return
+    await e.reply("كس امك مو بوت اسمي سينكو")
 
 @jmthon.on(events.NewMessage(incoming=True, pattern='^سينكو$'))
-async def enable_group(event):
-    await event.reply("تفضل شنو تريد من سينكو")
+async def enable_group(e):
+    if e.is_private:
+        return
+    await e.reply("تفضل شنو تريد من سينكو")
