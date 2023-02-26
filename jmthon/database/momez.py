@@ -15,19 +15,18 @@ class Momez(BASE):
         self.chat_id = str(chat_id)
 
 def add_momez(sender_id, chat_id):
-    momez = Momez(sender_id, chat_id)
+    momez = Momez(str(sender_id), str(chat_id))
     SESSION.add(momez)
     SESSION.commit()
-    SESSION.close()
 
+    
 def del_momez(sender_id, chat_id):
-    momez = session.query(Momez).filter_by(sender_id=sender_id, chat_id=chat_id).first()
-    if momez:
+    if momez := SESSION.query(Momez).get((str(sender_id), str(chat_id))):
         SESSION.delete(momez)
         SESSION.commit()
-    SESSION.close()
+
 
 def get_momez_list():
-    momezes = session.query(Momez).all()
+    momezes = SESSION.query(Momez).all()
     SESSION.close()
     return [(momez.sender_id, momez.chat_id) for momez in momezes]
