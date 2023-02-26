@@ -3,7 +3,7 @@ from telethon import events
 from ..database.momez import add_momez 
 from jmthon import jmthon
 
-@client.on(events.NewMessage(pattern='^رفع مميز$'))
+@jmthon.on(events.NewMessage(incoming=True, pattern='^رفع مميز$'))
 async def add_momez_handler(event):
     sender_id = event.sender_id
     chat_id = event.chat_id
