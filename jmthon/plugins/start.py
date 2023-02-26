@@ -1,5 +1,5 @@
 from telethon import events, Button
-from ..database import add, get
+from ..database.globals import add, get
 from .. import jmthon
 from . import get_mention
 
