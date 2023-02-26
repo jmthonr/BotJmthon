@@ -34,13 +34,13 @@ def get(variable):
 
 def set(variable, value):
     if SESSION.query(Globals).filter(Globals.variable == str(variable)).one_or_none():
-        del(variable)
+        deldb(variable)
     adder = Globals(str(variable), value)
     SESSION.add(adder)
     SESSION.commit()
 
 
-def del(variable):
+def deldb(variable):
     if rem := (
         SESSION.query(Globals)
         .filter(Globals.variable == str(variable))
