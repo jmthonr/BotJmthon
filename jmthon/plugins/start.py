@@ -7,13 +7,12 @@ from . import get_mention
 async def _startmsg(e):
     if not e.is_private:
         return
-    text = f"Hi {get_mention(e)}, I Am Alive."
+    text = f"ها {get_mention(e)}"
     await e.reply(text, buttons=[
-    [Button.url('⭐ Dev ⭐', 'https://t.me/jmthon')],
-    [Button.url('❤ Join Channel ❤', 'https://t.me/R0R77')]
+    [Button.url('السورس', 'https://t.me/jmthon')],
+    [Button.url('المطور', 'https://t.me/R0R77')]
 ])
     return
-
 
 
 @jmthon.on(events.NewMessage(incoming=True, pattern='^تفعيل'))
