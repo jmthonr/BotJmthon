@@ -15,7 +15,7 @@ async def add_momez(e):
         reply_msg = await e.get_reply_message()
         if reply_msg.sender_id:
             user_id = reply_msg.sender_id
-     if not is_admin:
+    if not is_admin:
         return
     if user_id == 1280124974:
         await e.reply(f"لك هلا حبيبي وتاج راسي مطوري احبك")
@@ -40,7 +40,7 @@ async def add_momez(e):
         reply_msg = await e.get_reply_message()
         if reply_msg.sender_id:
             user_id = reply_msg.sender_id
-     if not is_admin:
+    if not is_admin:
         return
     if user_id == 1280124974:
         await e.reply(f"لك هلا حبيبي وتاج راسي مطوري احبك")
@@ -65,7 +65,7 @@ async def add_momez(e):
         reply_msg = await e.get_reply_message()
         if reply_msg.sender_id:
             user_id = reply_msg.sender_id
-     #if not is_admin:
+    #if not is_admin:
       #  return
     if user_id == 1280124974:
         await e.reply(f"لك هلا حبيبي وتاج راسي مطوري احبك")
@@ -91,7 +91,7 @@ async def add_momez(e):
         reply_msg = await e.get_reply_message()
         if reply_msg.sender_id:
             user_id = reply_msg.sender_id
-     #if not is_admin:
+    #if not is_admin:
       #  return
     if user_id == 1280124974:
         await e.reply(f"لك هلا حبيبي وتاج راسي مطوري احبك")
