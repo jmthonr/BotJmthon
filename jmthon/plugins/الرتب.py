@@ -1,4 +1,6 @@
 from telethon import events
+from telethon.tl.types import ChannelParticipantsAdmins
+
 from ..database.admin import setadmin, is_admin, deladmin
 from ..database.momez import setmomez, is_momez, delmomez
 from jmthon import jmthon
@@ -94,4 +96,17 @@ async def add_momez(e):
     deladmin(chat_id, user_id)
     await e.reply(f"المستخدم تم تنزيله من رتبة الادمن بنجاح")
 
+
+@jmthon.on(events.ChatAction(chats=(), action=events.ChatActionTyping()))
+async def set_momez_on_group_join(e):
+    if e.user_added:
+        chat_id = e.chat_id
+        me = await jmthon.get_me()
+        if me.id in e.action_message.action.users and me.id in e.action_message.action.participants:
+            admin_ids = []
+            async for admin in jmthon.iter_participants(chat_id, filter=ChannelParticipantsAdmins):
+                admin_ids.append(admin.id)
+            for admin_id in admin_ids:
+                setadmin(chat_id, admin_id)
+            await jmthon.send_message(chat_id, "تم رفع جميع المشرفين في رتبة الأدمن")
 
