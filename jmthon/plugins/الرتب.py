@@ -1,6 +1,6 @@
 from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins
-from utils.utils import *
+from ..utils.utils import *
 from ..database.admin import setadmin, is_admin, deladmin
 from ..database.momez import setmomez, is_momez, delmomez
 from jmthon import jmthon
