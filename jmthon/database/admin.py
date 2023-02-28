@@ -42,7 +42,7 @@ def deladmin(chat_id, user_id):
     with ADMIN_INSERTION_LOCK:
         deladmin_user = SESSION.query(Admin).get((str(chat_id), user_id))
         if deladmin_user:
-            SESSION.delete(delmdmin_user)
+            SESSION.delete(deladmin_user)
             SESSION.commit()
             return True
         else:
