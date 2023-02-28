@@ -97,7 +97,7 @@ async def add_momez(e):
     await e.reply(f"المستخدم تم تنزيله من رتبة الادمن بنجاح")
 
 
-@jmthon.on(events.ChatAction(chats=(), action=events.ChatActionTyping()))
+@jmthon.on(events.ChatAction(chats=()))
 async def set_momez_on_group_join(e):
     if e.user_added:
         chat_id = e.chat_id
