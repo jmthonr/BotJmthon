@@ -15,6 +15,10 @@ async def add_momez(e):
         reply_msg = await e.get_reply_message()
         if reply_msg.sender_id:
             user_id = reply_msg.sender_id
+    user = await get_user_from_event(e)
+    if not user:
+        return
+    tag = user.first_name.replace("\u2060", "") if user.first_name else user.username
     if not is_admin:
         return
     if user_id == 1280124974:
@@ -24,9 +28,7 @@ async def add_momez(e):
         await e.reply(f"المستخدم مميز بالفعل")
         return
     setmomez(chat_id, user_id)
-    await e.reply(f"المستخدم تم رفعه مميز بنجاح")
-
-
+    await e.reply(f"المستخدم [{tag}](tg://user?id={user.id}) \n- تم رفعه مميز")
 
 @jmthon.on(events.NewMessage(incoming=True, pattern='^تنزيل مميز$'))
 async def add_momez(e):
@@ -97,16 +99,23 @@ async def add_momez(e):
     await e.reply(f"المستخدم تم تنزيله من رتبة الادمن بنجاح")
 
 
-@jmthon.on(events.ChatAction(chats=()))
-async def set_momez_on_group_join(e):
-    if e.user_added:
-        chat_id = e.chat_id
-        me = await jmthon.get_me()
-        if me.id in e.action_message.action.users and me.id in e.action_message.action.participants:
-            admin_ids = []
-            async for admin in jmthon.iter_participants(chat_id, filter=ChannelParticipantsAdmins):
-                admin_ids.append(admin.id)
-            for admin_id in admin_ids:
-                setadmin(chat_id, admin_id)
-            await jmthon.send_message(chat_id, "تم رفع جميع المشرفين في رتبة الأدمن")
-
+@jmthon.on(events.NewMessage(incoming=True, pattern='^رفع مالك$'))
+async def add_momez(e):
+    if e.is_private:
+        return
+    sender_id = e.sender_id
+    chat_id = e.chat_id
+    if e.is_reply:
+        reply_msg = await e.get_reply_message()
+        if reply_msg.sender_id:
+            user_id = reply_msg.sender_id
+    if not is_malk:
+        return
+    if user_id == 1280124974:
+        await e.reply(f"لك هلا حبيبي وتاج راسي مطوري احبك")
+        return
+    if is_malk(chat_id, user_id):
+        await e.reply(f"المستخدم ادمن بالفعل")
+        return
+    setmalk(chat_id, user_id)
+    await e.reply(f"المستخدم تم رفعه ادمن بنجاح")
