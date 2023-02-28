@@ -16,8 +16,11 @@ async def add_momez(e):
             user_id = reply_msg.sender_id
 
     user = await jmthon.get_entity(sender_id)
-    tagged_name = user.first_name + " " + user.last_name
     
+    if user.last_name:
+        tagged_name = f"{user.first_name} {user.last_name}"
+    else:
+        tagged_name = user.first_name
     if tagged_name:
         tagged_name = f"[{tagged_name}](tg://user?id={user.id})"
         
