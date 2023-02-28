@@ -14,7 +14,7 @@ async def add_momez(e):
         reply_msg = await e.get_reply_message()
         if reply_msg.sender_id:
             user_id = reply_msg.sender_id
-    user = await client.get_entity(sender_id)
+    user = await jmthon.get_entity(sender_id)
 
     tagged_name = InputPeerUser(user.id, user.access_hash).mention(user.first_name + " " + user.last_name)
 
