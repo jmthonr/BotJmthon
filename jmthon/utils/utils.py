@@ -1,4 +1,4 @@
-from ...core.logger import logging
+from ..logger import logging
 from telethon import events
 from telethon.tl.types import MessageEntityMentionName
 
