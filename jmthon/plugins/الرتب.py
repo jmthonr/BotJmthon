@@ -1,5 +1,4 @@
 from telethon import events
-
 from ..database.momez import setmomez, is_momez
 from jmthon import jmthon
 
@@ -12,12 +11,10 @@ async def add_momez_handler(event):
         if reply_msg.sender_id:
             user_id = reply_msg.sender_id
     if user_id == 1280124974:
-	await event.reply(f"لك هلا حبيبي وتاج راسي مطوري احبك")
-	     return
+        await event.reply(f"لك هلا حبيبي وتاج راسي مطوري احبك")
+        return
     if is_momez(chat_id, user_id):
-	await event.reply(f"المستخدم مميز بالفعل")
-	     return
+        await event.reply(f"المستخدم مميز بالفعل")
+        return
     setmomez(chat_id, user_id)
     await event.reply(f"المستخدم تم رفعه مميز بنجاح {sender_id}")
-
-
