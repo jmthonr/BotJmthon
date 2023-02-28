@@ -38,11 +38,11 @@ def is_admin(chat_id, user_id):
         SESSION.close()
 
 
-def delmadmin(chat_id, user_id):
+def deladmin(chat_id, user_id):
     with ADMIN_INSERTION_LOCK:
-        delmadmin_user = SESSION.query(Admin).get((str(chat_id), user_id))
-        if delmadmin_user:
-            SESSION.delete(delmadmin_user)
+        deladmin_user = SESSION.query(Admin).get((str(chat_id), user_id))
+        if deladmin_user:
+            SESSION.delete(delmdmin_user)
             SESSION.commit()
             return True
         else:
