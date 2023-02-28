@@ -15,7 +15,7 @@ async def add_momez(e):
         if reply_msg.sender_id:
             user_id = reply_msg.sender_id
 
-    user = await jmthon.get_entity(sender_id)
+    user = await jmthon.get_entity(user_id)
     
     if user.last_name:
         tagged_name = f"{user.first_name} {user.last_name}"
@@ -33,7 +33,7 @@ async def add_momez(e):
         await e.reply(f"المستخدم مميز بالفعل")
         return
     setmomez(chat_id, user_id)
-    await e.reply(f"المستخدم [{tagged_name}](tg://user?id={user.id}) \n- تم رفعه مميز")
+    await e.reply(f"المستخدم {tagged_name}\n- تم رفعه مميز")
 
 @jmthon.on(events.NewMessage(incoming=True, pattern='^تنزيل مميز$'))
 async def add_momez(e):
