@@ -1,6 +1,5 @@
 from telethon import events
-from telethon.tl.types import ChannelParticipantsAdmins
-from ..utils.utils import *
+from telethon.tl.types import ChannelParticipantsAdmins, InputPeerUser
 from ..database.admin import setadmin, is_admin, deladmin
 from ..database.momez import setmomez, is_momez, delmomez
 from jmthon import jmthon
@@ -15,10 +14,10 @@ async def add_momez(e):
         reply_msg = await e.get_reply_message()
         if reply_msg.sender_id:
             user_id = reply_msg.sender_id
-    user = await get_user_from_event(e)
-    if not user:
-        return
-    tag = user.first_name.replace("\u2060", "") if user.first_name else user.username
+    user = await client.get_entity(sender_id)
+
+    tagged_name = InputPeerUser(user.id, user.access_hash).mention(user.first_name + " " + user.last_name)
+
     if not is_admin:
         return
     if user_id == 1280124974:
@@ -28,7 +27,7 @@ async def add_momez(e):
         await e.reply(f"المستخدم مميز بالفعل")
         return
     setmomez(chat_id, user_id)
-    await e.reply(f"المستخدم [{tag}](tg://user?id={user.id}) \n- تم رفعه مميز")
+    await e.reply(f"المستخدم [{tagged_name}](tg://user?id={user.id}) \n- تم رفعه مميز")
 
 @jmthon.on(events.NewMessage(incoming=True, pattern='^تنزيل مميز$'))
 async def add_momez(e):
