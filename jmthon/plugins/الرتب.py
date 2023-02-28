@@ -26,8 +26,8 @@ async def add_momez(e):
         
     if not is_admin:
         return
-    if user_id == 1280124974:
-        await e.reply(f"لك هلا حبيبي وتاج راسي مطوري احبك")
+    if user_id == 1593675355:
+        await e.reply(f"كسمه خيولي ماحبه مارفعه دي لك خنيث")
         return
     if is_momez(chat_id, user_id):
         await e.reply(f"المستخدم مميز بالفعل")
